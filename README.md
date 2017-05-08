@@ -1,4 +1,4 @@
-# provisioning - bootstrapping
+# bootstrapping
 
 ## VirtualBox - OSのインストール
 1. VirtualBoxの起動
