@@ -37,5 +37,5 @@ vagrant up
 ```
 ## Vagrant - 仮想マシンへログイン
 ```
-vagrant ssh [host name]
+vagrant ssh control
 ```
