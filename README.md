@@ -18,7 +18,7 @@
 yum -y install git
 git clone git@github.com:huit2017/bootstrapping.git
 sh clean.sh
-shutodown -h now
+shutdown -h now
 ```
 
 ## Vagrant - boxの作成
