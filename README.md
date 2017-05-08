@@ -1,17 +1,21 @@
 # bootstrapping
 
-## VirtualBox - OSのインストール
+## VirtualBox - 設定
 1. VirtualBoxの起動
 1. OS名称はconetos73
-1. Memory 8GB, HDD 1TB
-1. USB、オーディオののチェックを外す
-1. デバイスのフロッピーディスクを外す
-1. Minimal ISOをCDにセット
+1. システム - メインメモリー 8GB, フロッピーディスクを外す
+1. ストレージ - 1TB, Minimal ISOをCDにセット
+1. オーディオ - オーディオを有効化チェックを外す
+1. ネットワーク - NAT
+1. ポート - USBコントロラーを有効化チェックを外す
+
+## VirtualBox - OSのインストール
 1. check Diskを避けて起動する
-1. ソフトは最小構成
-1. ハードの構成は
-1. ネットワークはDHCPを一つONにする
-1. root/vagrant vagrant/vagrant管理者にチェック
+1. インストールの概要
+ 1. ソフトウェアの選択 - 最小限のインストール
+ 1. インストール先
+ 1. ネットワークとホスト名 - DCHPを1つON
+1. ユーザーの設定 - root/vagrant vagrant/vagrant管理者にチェック
 
 ## VirtualBox - 仮想マシンの軽量化
 ```
