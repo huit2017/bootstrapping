@@ -3,7 +3,7 @@
 ## VirtualBox - OSのインストール
 1. VirtualBoxの起動
 1. OS名称はconetos73
-1. Memory 8GB, HD1TB
+1. Memory 8GB, HDD 1TB
 1. USB、オーディオののチェックを外す
 1. デバイスのフロッピーディスクを外す
 1. Minimal ISOをCDにセット
