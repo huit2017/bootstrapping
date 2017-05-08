@@ -1,40 +1,41 @@
 # provisioning - bootstrapping
 
-## vagrant boxの作成
+## VirtualBox - OSのインストール
+1. VirtualBoxの起動
+1. OS名称はconetos73
+1. Memory 8GB, HD1TB
+1. USB、オーディオののチェックを外す
+1. デバイスのフロッピーディスクを外す
+1. Minimal ISOをCDにセット
+1. check Diskを避けて起動する
+1. ソフトは最小構成
+1. ハードの構成は
+1. ネットワークはDHCPを一つONにする
+1. root/vagrant vagrant/vagrant管理者にチェック
+
+## VirtualBox - 仮想マシンの軽量化
+```
+yum -y install git
+git clone git@github.com:huit2017/bootstrapping.git
+sh clean.sh
+shutodown -h now
+```
+
+## Vagrant - boxの作成
 ```
 vagrant package --base centos73
 vagrant box add centos73 package.box
-vagrant box list
+rm package.box
 ```
 
-## Vagrant起動
+## Vagrant - 仮想マシンの起動
 ```
 mkdir provisioning
 cd provisioning
 vagrant init centos73
 vagrant up
 ```
-
-## 仮想マシンを修正
-1. winscpで仮想マシンにログイン
-2. C:\Users\%username%\.vagrant.d\insecure_private_keyを/home/vagrantにコピー
-3. puttyで仮想マシンにログイン
-
+## Vagrant - 仮想マシンへログイン
 ```
-mkdir .ssh; chmod 700 .ssh
-sudo ssh-keygen -yf insecure_private_key > .ssh/authorized_keys
-chmod 600 .ssh/authorized_keys
-rm insecure_private_key
+vagrant ssh [host name]
 ```
-
-## Vagrantにて仮想マシンの作成
-```
-mkdir centos73VM
-cd centos73VM
-vagrant init centos73
-vagrant up
-```
-- ※↓
-- default: Warning: Authentication failure. Retrying...
-- vagrant ssh-config
-- IdentityFileにあるinsecure_private_keyファイル(秘密鍵)より公開鍵を作成する
