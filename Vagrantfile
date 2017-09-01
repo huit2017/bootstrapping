@@ -18,15 +18,16 @@ Vagrant.configure("2") do |config|
   config.vm.define "control" do |node|
     node.vm.hostname = "control"
     node.vm.network :private_network, ip: "192.168.43.41"
+    node.vm.provision :shell, :path => "bootstrap.sh"
   end
 
-  config.vm.define "ticket" do |node|
-    node.vm.hostname = "ticket"
+  config.vm.define "its" do |node|
+    node.vm.hostname = "its"
     node.vm.network :private_network, ip: "192.168.43.42"
   end
 
-  config.vm.define "ci" do |node|
-    node.vm.hostname = "ci"
+  config.vm.define "vcs" do |node|
+    node.vm.hostname = "vcs"
     node.vm.network :private_network, ip: "192.168.43.43"
   end
 
