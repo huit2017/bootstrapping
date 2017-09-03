@@ -5,20 +5,28 @@ ssh_config=~/.ssh/config
 cat << EOT > $ssh_config
 Host web
   HostName 192.168.43.41
+  StrictHostKeyChecking no
 Host app
   HostName 192.168.43.42
+  StrictHostKeyChecking no
 Host db1
   HostName 192.168.43.43
+  StrictHostKeyChecking no
 Host db2
   HostName 192.168.43.44
+  StrictHostKeyChecking no
 Host nosql1
   HostName 192.168.43.45
+  StrictHostKeyChecking no
 Host nosql2
   HostName 192.168.43.46
+  StrictHostKeyChecking no
 Host its
   HostName 192.168.43.51
+  StrictHostKeyChecking no
 Host vcs
   HostName 192.168.43.52
+  StrictHostKeyChecking no
 EOT
 
 chmod 600 $ssh_config
