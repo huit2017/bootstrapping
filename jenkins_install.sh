@@ -25,10 +25,6 @@ chmod 600 $ssh_config
 
 # ssh key copy
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
-for host in {web,app,db1,db2,nosql1,nosql2,its,vcs}
-do
-  ssh-copy-id ${host};
-done
 
 # ansible install
 sudo yum install -y ansible
