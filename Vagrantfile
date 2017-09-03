@@ -15,50 +15,52 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos73"
   config.ssh.insert_key = false
 
-  config.vm.define "control" do |node|
-    node.vm.hostname = "control"
-    node.vm.network :private_network, ip: "192.168.43.41"
-    node.vm.provision :shell, :path => "bootstrap.sh"
-  end
-
-  config.vm.define "its" do |node|
-    node.vm.hostname = "its"
-    node.vm.network :private_network, ip: "192.168.43.42"
-  end
-
-  config.vm.define "vcs" do |node|
-    node.vm.hostname = "vcs"
-    node.vm.network :private_network, ip: "192.168.43.43"
-  end
-
   config.vm.define "web" do |node|
     node.vm.hostname = "web"
-    node.vm.network :private_network, ip: "192.168.43.51"
+    node.vm.network :private_network, ip: "192.168.43.41"
   end
 
   config.vm.define "app" do |node|
     node.vm.hostname = "app"
-    node.vm.network :private_network, ip: "192.168.43.52"
+    node.vm.network :private_network, ip: "192.168.43.42"
   end
 
   config.vm.define "db1" do |node|
     node.vm.hostname = "db1"
-    node.vm.network :private_network, ip: "192.168.43.53"
+    node.vm.network :private_network, ip: "192.168.43.43"
   end
 
   config.vm.define "db2" do |node|
     node.vm.hostname = "db2"
-    node.vm.network :private_network, ip: "192.168.43.54"
+    node.vm.network :private_network, ip: "192.168.43.44"
   end
 
-  config.vm.define "redis1" do |node|
-    node.vm.hostname = "redis1"
-    node.vm.network :private_network, ip: "192.168.43.55"
+  config.vm.define "nosql1" do |node|
+    node.vm.hostname = "nosql1"
+    node.vm.network :private_network, ip: "192.168.43.45"
   end
 
-  config.vm.define "redis2" do |node|
-    node.vm.hostname = "redis2"
-    node.vm.network :private_network, ip: "192.168.43.56"
+  config.vm.define "nosql2" do |node|
+    node.vm.hostname = "nosql2"
+    node.vm.network :private_network, ip: "192.168.43.46"
+  end
+
+  config.vm.define "its" do |node|
+    node.vm.hostname = "its"
+    node.vm.network :private_network, ip: "192.168.43.51"
+    node.vm.provision :shell, :path => "redmine_install.sh", privileged: false
+  end
+
+  config.vm.define "vcs" do |node|
+    node.vm.hostname = "vcs"
+    node.vm.network :private_network, ip: "192.168.43.52"
+    node.vm.provision :shell, :path => "gitlab_install.sh", privileged: false
+  end
+
+  config.vm.define "ci" do |node|
+    node.vm.hostname = "ci"
+    node.vm.network :private_network, ip: "192.168.43.53"
+    node.vm.provision :shell, :path => "jenkins_install.sh", privileged: false
   end
 
   # Disable automatic box update checking. If you disable this, then
