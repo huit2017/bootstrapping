@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # ssh config
-ssh_config=~/.ssh/config
-cat << EOT > $ssh_config
+readonly SSH_CONFIG=~/.ssh/config
+cat <<EOT >${SSH_CONFIG}
 Host web
   HostName 192.168.43.41
   StrictHostKeyChecking no
@@ -29,7 +29,7 @@ Host vcs
   StrictHostKeyChecking no
 EOT
 
-chmod 600 $ssh_config
+chmod 600 ${SSH_CONFIG}
 
 # ssh key copy
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
