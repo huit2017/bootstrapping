@@ -55,7 +55,6 @@ sudo -u postgres psql -c "CREATE DATABASE redmine OWNER redmine ENCODING 'UTF-8'
 cd -
 
 #5. Redmineのダウンロード
-
 readonly READMINE_DIR='/var/lib/redmine'
 curl -O http://www.redmine.org/releases/${READMINE_VERSION}.tar.gz
 tar -zxvf ${READMINE_VERSION}.tar.gz
