@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# ssh config
+. init.sh
+#1. ssh config
 readonly SSH_CONFIG=~/.ssh/config
 cat <<EOT >${SSH_CONFIG}
 Host its
@@ -9,14 +10,17 @@ Host its
 Host vcs
   HostName 192.168.32.12
   StrictHostKeyChecking no
+Host vcs
+  HostName 192.168.32.13
+  StrictHostKeyChecking no
 EOT
 
 chmod 600 ${SSH_CONFIG}
 
-# ssh key create
+#2. ssh key create
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
-# ansible install
+#3. ansible install
 sudo yum install -y ansible
 # git install
 sudo yum install -y git

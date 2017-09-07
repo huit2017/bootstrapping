@@ -1,6 +1,7 @@
 #!/bin/bash
 
-readonly RUBY_MAJOR_VERSION='2.4'
+. init.sh
+
 readonly RUBY_TEENY_VERSION='1'
 readonly DB_PASSWORD='redmine'
 readonly READMINE_VERSION='redmine-3.4.2'
@@ -26,6 +27,8 @@ sudo yum install -y openssl-devel \
   ipa-pgothic-fonts
 
 #3. Rubyのインストール
+readonly SRC_DIR='/usr/local/src'
+cd ${SRC_DIR}
 readonly RUBY_VERSION="ruby-${RUBY_MAJOR_VERSION}.${RUBY_TEENY_VERSION}"
 curl -O https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR_VERSION}/${RUBY_VERSION}.tar.gz
 tar xvf ${RUBY_VERSION}.tar.gz
@@ -33,7 +36,7 @@ cd ${RUBY_VERSION}
 ./configure --disable-install-doc
 make
 sudo make install
-cd ..
+cd
 ruby -v
 sudo $(which gem) install bundler --no-rdoc --no-ri
 
@@ -55,10 +58,11 @@ sudo -u postgres psql -c "CREATE DATABASE redmine OWNER redmine ENCODING 'UTF-8'
 cd -
 
 #5. Redmineのダウンロード
+cd ${SRC_DIR}
 readonly READMINE_DIR='/var/lib/redmine'
 curl -O http://www.redmine.org/releases/${READMINE_VERSION}.tar.gz
 tar -zxvf ${READMINE_VERSION}.tar.gz
-sudo mv ${READMINE_VERSION} $READMINE_DIR
+sudo mv ${READMINE_VERSION} ${READMINE_DIR}
 
 cat <<EOT | sudo tee ${READMINE_DIR}/config/database.yml
 production:
