@@ -4,10 +4,10 @@ sudo yum update
 #1. ssh config
 readonly SSH_CONFIG=~/.ssh/config
 cat <<EOT >${SSH_CONFIG}
-Host its
+Host mail
   HostName 192.168.32.11
   StrictHostKeyChecking no
-Host vcs
+Host its
   HostName 192.168.32.12
   StrictHostKeyChecking no
 Host vcs
