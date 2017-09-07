@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. init.sh
+sudo yum update
 
 readonly RUBY_TEENY_VERSION='1'
 readonly DB_PASSWORD='redmine'

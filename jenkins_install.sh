@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. init.sh
+sudo yum update
 #1. ssh config
 readonly SSH_CONFIG=~/.ssh/config
 cat <<EOT >${SSH_CONFIG}

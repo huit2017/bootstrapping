@@ -1,7 +1,6 @@
 #!/bin/bash
 
-. init.sh
-
+sudo yum update
 #1. Install and configure the necessary dependencies
 sudo yum install -y curl policycoreutils openssh-server openssh-clients
 sudo systemctl enable sshd
