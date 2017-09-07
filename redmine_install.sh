@@ -5,8 +5,8 @@ sudo yum update
 readonly RUBY_TEENY_VERSION='1'
 readonly DB_PASSWORD='redmine'
 readonly READMINE_VERSION='redmine-3.4.2'
-readonly SMTP_ADDRESS='localhost'
-readonly SMTP_DOMAIN='example.com'
+readonly SMTP_ADDRESS='192.168.32.11'
+readonly DOMAIN='192.168.32.12.com'
 
 #1. CentOSの設定
 sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
@@ -81,7 +81,7 @@ production:
     smtp_settings:
       address: "${SMTP_ADDRESS}"
       port: 25
-      domain: "${SMTP_DOMAIN}"
+      domain: "${DOMAIN}"
   rmagick_font_path: /usr/share/fonts/ipa-pgothic/ipagp.ttf
 EOT
 
