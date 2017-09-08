@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "local" do |node|
     node.vm.hostname = "local"
-    node.vm.network :private_network, ip: "192.168.33.10"
+    node.vm.network :private_network, ip: "192.168.33.11"
   end
 
   # Disable automatic box update checking. If you disable this, then
