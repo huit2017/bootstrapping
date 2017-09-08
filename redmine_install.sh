@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo yum update
-
+readonly RUBY_MAJOR_VERSION='2.4'
 readonly RUBY_TEENY_VERSION='1'
 readonly DB_PASSWORD='redmine'
 readonly READMINE_VERSION='redmine-3.4.2'
@@ -28,11 +28,11 @@ sudo yum install -y openssl-devel \
 readonly SRC_DIR='/usr/local/src'
 cd ${SRC_DIR}
 readonly RUBY_VERSION="ruby-${RUBY_MAJOR_VERSION}.${RUBY_TEENY_VERSION}"
-curl -O https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR_VERSION}/${RUBY_VERSION}.tar.gz
-tar xvf ${RUBY_VERSION}.tar.gz
+sudo curl -O https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR_VERSION}/${RUBY_VERSION}.tar.gz
+sudo tar xvf ${RUBY_VERSION}.tar.gz
 cd ${RUBY_VERSION}
-./configure --disable-install-doc
-make
+sudo ./configure --disable-install-doc
+sudo make
 sudo make install
 cd
 ruby -v
@@ -58,8 +58,8 @@ cd -
 #5. Redmineのダウンロード
 cd ${SRC_DIR}
 readonly READMINE_DIR='/var/lib/redmine'
-curl -O http://www.redmine.org/releases/${READMINE_VERSION}.tar.gz
-tar -zxvf ${READMINE_VERSION}.tar.gz
+sudo curl -O http://www.redmine.org/releases/${READMINE_VERSION}.tar.gz
+sudo tar -zxvf ${READMINE_VERSION}.tar.gz
 sudo mv ${READMINE_VERSION} ${READMINE_DIR}
 
 cat <<EOT | sudo tee ${READMINE_DIR}/config/database.yml
