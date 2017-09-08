@@ -15,10 +15,10 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos73"
   config.ssh.insert_key = false
 
-  config.vm.define "mail" do |node|
-    node.vm.hostname = "mail"
+  config.vm.define "om" do |node|
+    node.vm.hostname = "om"
     node.vm.network :private_network, ip: "192.168.32.11"
-    node.vm.provision :shell, :path => "postfix_install.sh", privileged: false
+    node.vm.provision :shell, :path => "zabbix_install.sh", privileged: false
   end
 
   config.vm.define "its" do |node|
@@ -37,6 +37,46 @@ Vagrant.configure("2") do |config|
     node.vm.hostname = "ci"
     node.vm.network :private_network, ip: "192.168.32.14"
     node.vm.provision :shell, :path => "jenkins_install.sh", privileged: false
+  end
+
+  config.vm.define "mail" do |node|
+    node.vm.hostname = "mail"
+    node.vm.network :private_network, ip: "192.168.36.9"
+  end
+
+  config.vm.define "elk" do |node|
+    node.vm.hostname = "elk"
+    node.vm.network :private_network, ip: "192.168.36.10"
+  end
+
+  config.vm.define "web" do |node|
+    node.vm.hostname = "web"
+    node.vm.network :private_network, ip: "192.168.36.11"
+  end
+
+  config.vm.define "app" do |node|
+    node.vm.hostname = "app"
+    node.vm.network :private_network, ip: "192.168.36.12"
+  end
+
+  config.vm.define "dbm" do |node|
+    node.vm.hostname = "dbm"
+    node.vm.network :private_network, ip: "192.168.36.13"
+  end
+
+  config.vm.define "dbs1" do |node|
+    node.vm.hostname = "dbs1"
+    node.vm.network :private_network, ip: "192.168.36.14"
+  end
+
+  config.vm.define "nosqlm" do |node|
+    node.vm.hostname = "nosqlm"
+    node.vm.network :private_network, ip: "192.168.36.15"
+  end
+
+  config.vm.define "nosqls1" do |node|
+    node.vm.hostname = "nosqls1"
+    node.vm.network :private_network, ip: "192.168.36.16"
   end
 
   # Disable automatic box update checking. If you disable this, then

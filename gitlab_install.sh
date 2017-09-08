@@ -18,3 +18,8 @@ sudo yum install -y gitlab-ce
 
 #3. Configure and start GitLab
 sudo gitlab-ctl reconfigure
+
+#4. postfix install
+sudo yum install -y postfix
+sudo systemctl enable postfix
+sudo systemctl start postfix
