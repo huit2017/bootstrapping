@@ -30,3 +30,8 @@ sudo service jenkins start
 sudo yum install -y postfix
 sudo systemctl enable postfix
 sudo systemctl start postfix
+
+#7. fabric install
+sudo yum install -y epel-release python-pip pip
+pip2.7 install fabric
+sudo pip2.7 install fabric
