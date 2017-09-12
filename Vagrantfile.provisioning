@@ -59,8 +59,8 @@ Vagrant.configure("2") do |config|
     node.vm.network :private_network, ip: "192.168.36.12"
   end
 
-  config.vm.define "dbm" do |node|
-    node.vm.hostname = "dbm"
+  config.vm.define "db" do |node|
+    node.vm.hostname = "db"
     node.vm.network :private_network, ip: "192.168.36.13"
   end
 
@@ -69,8 +69,8 @@ Vagrant.configure("2") do |config|
     node.vm.network :private_network, ip: "192.168.36.14"
   end
 
-  config.vm.define "nosqlm" do |node|
-    node.vm.hostname = "nosqlm"
+  config.vm.define "nosql" do |node|
+    node.vm.hostname = "nosql"
     node.vm.network :private_network, ip: "192.168.36.15"
   end
 
