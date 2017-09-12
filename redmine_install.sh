@@ -134,3 +134,24 @@ sudo systemctl restart httpd.service
 sudo yum install -y postfix
 sudo systemctl enable postfix
 sudo systemctl start postfix
+
+
+### redmine - git Lab
+# cd /var/lib/redmine/plugins
+# git clone git://github.com/koppen/redmine_github_hook.git
+# touch /var/lib/redmine/tmp/restart.txt
+
+# useradd redmine -g apache
+# su - redmine
+# ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa ###  git lab > profile > settings > SSH Keys - Add an SSH Key
+# less .ssh/id_rsa.pub
+# git clone --mirror git@:gitlab host/username/repository.git /var/lib/redmine/repos
+
+# redmine - project > settings > repository
+# label:identify [identify]
+
+# git lab - Webhooks settings
+# http://redmine host/[identify]
+
+# tasks
+# plugins: [redmine_dmsf, redmine_backlogs]
