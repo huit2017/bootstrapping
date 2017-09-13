@@ -136,14 +136,14 @@ sudo systemctl enable postfix
 sudo systemctl start postfix
 
 
-### redmine - git Lab
+### redmine - git Lab ###
 # cd /var/lib/redmine/plugins
 # git clone git://github.com/koppen/redmine_github_hook.git
 # touch /var/lib/redmine/tmp/restart.txt
 
 # useradd redmine -g apache
 # su - redmine
-# ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa ###  git lab > profile > settings > SSH Keys - Add an SSH Key
+# ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa # git lab > profile > settings > SSH Keys - Add an SSH Key
 # less .ssh/id_rsa.pub
 # git clone --mirror git@:gitlab host/username/repository.git /var/lib/redmine/repos
 
@@ -153,5 +153,19 @@ sudo systemctl start postfix
 # git lab - Webhooks settings
 # http://redmine host/[identify]
 
+### redmine_dmsf ###
+# sudo systemctl stop httpd.service
+# sudo yum install -y sudo yum install xapian-omega libxapian-dev xpdf poppler-utils antiword  unzip catdoc libwpd-tools libwps-tools gzip unrtf catdvi djview djview3  uuid uuid-dev xz libemail-outlook-message-perl
+# cd /var/lib/redmine/plugins
+# sudo git clone git://github.com/danmunn/redmine_dmsf.git
+# cd ..
+# sudo chown apache.apache -R plugins
+# sudo $(which bundle) exec rake redmine:plugins:migrate RAILS_ENV="production" #Could not find gem 'zip-zip' in any of the gem sources listed in your Gemfile. un `bundle install` to install missing gems.
+# sudo $(which bundle) update zip-zip #The latest bundler is 1.16.0.pre.2, but you are currently running 1.15.4. To update, run `gem install bundler --pre` Could not find gem 'zip-zip'.
+# sudo $(which gem) install bundler --pre
+# sudo $(which bundle) install --without development test --path vendor/bundle
+# sudo $(which bundle) exec rake redmine:plugins:migrate RAILS_ENV="production"
+# sudo systemctl start httpd.service
+
 # tasks
-# plugins: [redmine_dmsf, redmine_backlogs]
+# plugins: [Easy Gantt, redmine_backlogs]

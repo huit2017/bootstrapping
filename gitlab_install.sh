@@ -2,12 +2,9 @@
 
 sudo yum update
 #1. Install and configure the necessary dependencies
-sudo yum install -y curl policycoreutils openssh-server openssh-clients
+sudo yum install -y curl policycoreutils openssh-server openssh-clients postfix
 sudo systemctl enable sshd
 sudo systemctl start sshd
-sudo systemctl enable httpd
-sudo systemctl start httpd
-sudo yum install postfix
 sudo systemctl enable postfix
 sudo systemctl start postfix
 #sudo firewall-cmd --permanent --add-service=http
@@ -18,8 +15,3 @@ sudo yum install -y gitlab-ce
 
 #3. Configure and start GitLab
 sudo gitlab-ctl reconfigure
-
-#4. postfix install
-sudo yum install -y postfix
-sudo systemctl enable postfix
-sudo systemctl start postfix
