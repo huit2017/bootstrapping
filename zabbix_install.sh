@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yum update
+sudo yum update -y
 
 #1. ssh config
 readonly SSH_CONFIG=~/.ssh/config

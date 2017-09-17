@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo yum update -y
 # ssh key create
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 

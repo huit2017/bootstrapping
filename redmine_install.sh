@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yum update
+sudo yum update -y
 readonly RUBY_MAJOR_VERSION='2.4'
 readonly RUBY_TEENY_VERSION='1'
 readonly DB_PASSWORD='redmine'
