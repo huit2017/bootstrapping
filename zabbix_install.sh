@@ -1,4 +1,5 @@
 #!/bin/bash
+
 readonly DB_ROOT_PASSWORD=zabbix
 readonly DB_ZABBIX_PASSWORD=zabbix
 sudo yum update -y
