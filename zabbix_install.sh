@@ -23,10 +23,10 @@ sudo systemctl start postfix
 
 #4. zabbix install
 sudo rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
-sudo yum install -y zabbix-server-mysql zabbix-web-mysql zabbix-web-japanese
+sudo yum install -y zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-web-japanese
 # sudo yum install zabbix-proxy-mysql # proxy
 
-#4. MySQL install
+#5. MySQL install
 sudo yum localinstall -y http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
 sudo yum -y install mysql-community-server
 sudo systemctl enable mysqld.service
@@ -52,8 +52,6 @@ sudo rpm -q zabbix-server-mysql
 readonly ZABBIX_SERVER_CONF=/etc/zabbix/zabbix_server.conf
 sudo cp ${ZABBIX_SERVER_CONF} ${ZABBIX_SERVER_CONF}.org
 sudo sed -i 's/# DBPassword=/DBPassword=zabbix/' ${ZABBIX_SERVER_CONF}
-sudo systemctl enable zabbix-server
-sudo systemctl start zabbix-server
 
 #readonly ZABBIX_PROXY_CONF=/etc/zabbix/zabbix_proxy.conf
 #sudo cp ${ZABBIX_PROXY_CONF} ${ZABBIX_PROXY_CONF}.org
@@ -67,8 +65,11 @@ sudo sed -i 's@        # php_value date.timezone Europe/Riga@        php_value d
 
 sudo setsebool -P httpd_can_connect_zabbix on
 sudo setsebool -P httpd_can_network_connect_db on
-sudo systemctl start httpd
 
-#5. zabbix agent install
-# sudo yum install -y zabbix-agent
-# sudo service zabbix-agent start
+#6. start zabbix
+sudo systemctl enable zabbix-server
+sudo systemctl enable zabbix-agent
+sudo systemctl enable httpd
+sudo systemctl start zabbix-server
+sudo systemctl start zabbix-agent
+sudo systemctl start httpd
