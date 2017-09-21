@@ -15,3 +15,4 @@ sudo service hinemos_manager start
 sudo systemctl list-unit-files | grep hinemos
 sudo service hinemos_web start
 sudo service hinemos_agent start
+sudo service snmpd start
