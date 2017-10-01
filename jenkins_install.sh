@@ -33,22 +33,6 @@ sudo systemctl enable postfix
 sudo systemctl start postfix
 
 ### jenkins broser
+##
 # Jenkins > 設定 # Jenkinsの位置 - システム管理者のメールアドレス: Jenkis Admin <jenkins_admin@xxx.xx.xx>
-# jenkins > プラグインマネージャー # インストール [Git plugin, Cobertura Plugin, FindBugs Plug-in, Checkstyle Plug-in, Pull Request Builder Plugin, SSH Slaves plugin, Docker Plugin]
-
-### create slave
-# jenkins 秘密鍵設定
-# Jenkins > 設定 # クラウド - 追加 Docker
-
-## jenkin cp public key
-# sudo -u jenkins scp /var/lib/jenkins/.ssh/id_rsa.pub jenkins@192.168.32.15:/var/lib/jenkins/.ssh
-# sudo -u jenkins ssh-copy-id 192.168.32.15
-## Jeinkins > auth > System > Globaldomain
-# scope global
-# secretkey ~/.ssh
-## node settings
-# node name: slave1
-# remote fs root: /var/lib/jenkins
-# label:
-# boot method: ssh [host: 192.168.32.15, auth: jenkins, Host key verification Strategy: Manually trusted...]
-# avlity: keep this agent...
+# jenkins > プラグインマネージャー # インストール [Git plugin, Pipeline, Locale plugin, Cobertura Plugin, Checkstyle Plug-in, SSH Slaves plugin, FindBugs Plug-in, GitHub Pull Request Builder, Docker Plugin]
