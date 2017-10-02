@@ -15,10 +15,96 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos73"
   config.ssh.insert_key = false
 
-  config.vm.define "local" do |node|
-    node.vm.hostname = "local"
-    node.vm.network :private_network, ip: "192.168.33.11"
+  config.vm.define "gateway" do |node|
+    node.vm.hostname = "gateway"
+    node.vm.network :private_network, ip: "192.168.32.11"
     node.vm.provision :shell, :path => "provision.sh", privileged: false
+  end
+
+  config.vm.define "om" do |node|
+    node.vm.hostname = "om"
+    node.vm.network :private_network, ip: "192.168.32.12"
+  end
+
+  config.vm.define "elk" do |node|
+    node.vm.hostname = "elk"
+    node.vm.network :private_network, ip: "192.168.32.13"
+  end
+
+  config.vm.define "vuls" do |node|
+    node.vm.hostname = "vuls"
+    node.vm.network :private_network, ip: "192.168.32.14"
+  end
+
+  config.vm.define "its" do |node|
+    node.vm.hostname = "its"
+    node.vm.network :private_network, ip: "192.168.32.15"
+  end
+
+  config.vm.define "vcs" do |node|
+    node.vm.hostname = "vcs"
+    node.vm.network :private_network, ip: "192.168.32.16"
+  end
+
+  config.vm.define "ci" do |node|
+    node.vm.hostname = "ci"
+    node.vm.network :private_network, ip: "192.168.32.17"
+  end
+
+  config.vm.define "cis1" do |node|
+    node.vm.hostname = "cis1"
+    node.vm.network :private_network, ip: "192.168.32.18"
+  end
+
+  config.vm.define "mail" do |node|
+    node.vm.hostname = "mail"
+    node.vm.network :private_network, ip: "192.168.33.10"
+  end
+
+  config.vm.define "web" do |node|
+    node.vm.hostname = "web"
+    node.vm.network :private_network, ip: "192.168.33.11"
+  end
+
+  config.vm.define "app" do |node|
+    node.vm.hostname = "app"
+    node.vm.network :private_network, ip: "192.168.33.12"
+  end
+
+  config.vm.define "batch" do |node|
+    node.vm.hostname = "batch"
+    node.vm.network :private_network, ip: "192.168.33.13"
+  end
+
+  config.vm.define "db" do |node|
+    node.vm.hostname = "db"
+    node.vm.network :private_network, ip: "192.168.33.14"
+  end
+
+  config.vm.define "dbs1" do |node|
+    node.vm.hostname = "dbs1"
+    node.vm.network :private_network, ip: "192.168.33.15"
+  end
+
+  config.vm.define "nosql" do |node|
+    node.vm.hostname = "nosql"
+    node.vm.network :private_network, ip: "192.168.33.16"
+  end
+
+  config.vm.define "nosqls1" do |node|
+    node.vm.hostname = "nosqls1"
+    node.vm.network :private_network, ip: "192.168.33.17"
+  end
+
+  config.vm.define "etl" do |node|
+    node.vm.hostname = "etl"
+    node.vm.network :private_network, ip: "192.168.33.18"
+  end
+
+  onfig.vm.define "local" do |node|
+    node.vm.hostname = "local"
+    node.vm.network :private_network, ip: "192.168.37.11"
+    node.vm.provision :shell, :path => "local_bootstrapping.sh", privileged: false
   end
 
   # Disable automatic box update checking. If you disable this, then
