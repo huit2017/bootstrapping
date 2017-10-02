@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "local" do |node|
     node.vm.hostname = "local"
     node.vm.network :private_network, ip: "192.168.33.11"
-    node.vm.provision :shell, :path => "local_bootstrapping.sh", privileged: false
+    node.vm.provision :shell, :path => "provision.sh", privileged: false
   end
 
   # Disable automatic box update checking. If you disable this, then
