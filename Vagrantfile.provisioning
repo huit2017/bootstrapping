@@ -15,8 +15,8 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos73"
   config.ssh.insert_key = false
 
-  config.vm.define "bs" do |node|
-    node.vm.hostname = "bs"
+  config.vm.define "gateway" do |node|
+    node.vm.hostname = "gateway"
     node.vm.network :private_network, ip: "192.168.32.11"
   end
 
@@ -27,37 +27,42 @@ Vagrant.configure("2") do |config|
     node.vm.provision :shell, :path => "hinemos_install.sh", privileged: false
   end
 
+  config.vm.define "elk" do |node|
+    node.vm.hostname = "elk"
+    node.vm.network :private_network, ip: "192.168.32.13"
+  end
+
+  config.vm.define "vuls" do |node|
+    node.vm.hostname = "vuls"
+    node.vm.network :private_network, ip: "192.168.32.14"
+  end
+
   config.vm.define "its" do |node|
     node.vm.hostname = "its"
-    node.vm.network :private_network, ip: "192.168.32.13"
+    node.vm.network :private_network, ip: "192.168.32.15"
     node.vm.provision :shell, :path => "redmine_install.sh", privileged: false
   end
 
   config.vm.define "vcs" do |node|
     node.vm.hostname = "vcs"
-    node.vm.network :private_network, ip: "192.168.32.14"
+    node.vm.network :private_network, ip: "192.168.32.16"
     node.vm.provision :shell, :path => "gitlab_install.sh", privileged: false
   end
 
   config.vm.define "ci" do |node|
     node.vm.hostname = "ci"
-    node.vm.network :private_network, ip: "192.168.32.15"
+    node.vm.network :private_network, ip: "192.168.32.17"
     node.vm.provision :shell, :path => "jenkins_install.sh", privileged: false
   end
 
   config.vm.define "cis1" do |node|
     node.vm.hostname = "cis1"
-    node.vm.network :private_network, ip: "192.168.32.16"
+    node.vm.network :private_network, ip: "192.168.32.18"
     node.vm.provision :shell, :path => "docker_install.sh", privileged: false
   end
 
   config.vm.define "mail" do |node|
     node.vm.hostname = "mail"
-    node.vm.network :private_network, ip: "192.168.36.9"
-  end
-
-  config.vm.define "elk" do |node|
-    node.vm.hostname = "elk"
     node.vm.network :private_network, ip: "192.168.36.10"
   end
 
@@ -71,24 +76,34 @@ Vagrant.configure("2") do |config|
     node.vm.network :private_network, ip: "192.168.36.12"
   end
 
+  config.vm.define "batch" do |node|
+    node.vm.hostname = "batch"
+    node.vm.network :private_network, ip: "192.168.36.13"
+  end
+
   config.vm.define "db" do |node|
     node.vm.hostname = "db"
-    node.vm.network :private_network, ip: "192.168.36.13"
+    node.vm.network :private_network, ip: "192.168.36.14"
   end
 
   config.vm.define "dbs1" do |node|
     node.vm.hostname = "dbs1"
-    node.vm.network :private_network, ip: "192.168.36.14"
+    node.vm.network :private_network, ip: "192.168.36.15"
   end
 
   config.vm.define "nosql" do |node|
     node.vm.hostname = "nosql"
-    node.vm.network :private_network, ip: "192.168.36.15"
+    node.vm.network :private_network, ip: "192.168.36.16"
   end
 
   config.vm.define "nosqls1" do |node|
     node.vm.hostname = "nosqls1"
-    node.vm.network :private_network, ip: "192.168.36.16"
+    node.vm.network :private_network, ip: "192.168.36.17"
+  end
+
+  config.vm.define "etl" do |node|
+    node.vm.hostname = "etl"
+    node.vm.network :private_network, ip: "192.168.36.18"
   end
 
   # Disable automatic box update checking. If you disable this, then
