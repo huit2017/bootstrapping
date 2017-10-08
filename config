@@ -1,0 +1,64 @@
+Host om
+  HostName 192.168.32.12
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host elk
+  HostName 192.168.32.13
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host vuls
+  HostName 192.168.32.14
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host its
+  HostName 192.168.32.15
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host vcs
+  HostName 192.168.32.16
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host ci
+  HostName 192.168.32.17
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host cis1
+  HostName 192.168.32.18
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host mail
+  HostName 192.168.33.10
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host web
+  HostName 192.168.33.11
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host app
+  HostName 192.168.33.12
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host batch
+  HostName 192.168.33.13
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host db
+  HostName 192.168.33.14
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host dbs1
+  HostName 192.168.33.15
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host nosql
+  HostName 192.168.33.16
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host nosqls1
+  HostName 192.168.33.17
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host etl
+  HostName 192.168.33.18
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
